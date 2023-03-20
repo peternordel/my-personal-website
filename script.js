@@ -1,2 +1,10 @@
-const h2 = document.createElement("h2");
-h2.textContent = "This content added by JavaScript";
+const left = document.getElementById("left-side");
+
+const handleOnMove = e => {
+    const p = e.clientX / window.innerWidth * 100;
+    left.style.width = `${p}%`;
+}
+
+document.onmousemove = e => handleOnMove(e);
+
+document.ontouchmove = e => handleOnMove(e.touches[0]);
